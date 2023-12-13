@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Run Batch File",
+        "type": "shell",
+        "command": "cmd",
+        "args": ["C:/Users/aksha/projects/java lab/jdbc/run.bat"],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
+  

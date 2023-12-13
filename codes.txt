@@ -1,0 +1,65 @@
+                try (Statement statement = connection.createStatement()) {
+                    // Define the SQL statement to create a table
+                    String createTableSQL = "CREATE TABLE student (" +
+                            "id INT PRIMARY KEY," +
+                            "name VARCHAR(255)," +
+                            "age INT)";
+
+                    // Execute the SQL statement
+                    statement.executeUpdate(createTableSQL);
+
+                    System.out.println("Table created successfully!");
+                } catch (SQLException e) {
+                    System.out.println("Error creating table: " + e.getMessage());
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                // Insert data into table
+                try (Statement statement = connection.createStatement()) {
+                    // Insert data into example_table
+                    String insertData = "INSERT INTO student (id, name, age) VALUES (23, 'John Doe', 25)";
+                    int rowsAffected = statement.executeUpdate(insertData);
+
+                    if (rowsAffected > 0) {
+                        System.out.println("Data inserted successfully!");
+                    } else {
+                        System.out.println("Error: Data insertion failed.");
+                    }
+                } catch (SQLException e) {
+                    System.out.println("Error executing INSERT statement: " + e.getMessage());
+                }
+
+
+
+
+
+
+
+
+
+
+                Statement st = connection.createStatement();
+                String s = "select * from student";
+                ResultSet rs = st.executeQuery(s);
+                System.out.println();
+                while(rs.next()){
+                    int id = rs.getInt("id");
+                    String name = rs.getString("name");
+                    int age = rs.getInt("age");
+                    System.out.println(id + " " + name + " " + age);
+                }
